@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('about', 'PagesController@getAbout');
 
-Route::get('/', 'PagesController@getIndex');
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +32,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    Route::get('/about', 'PagesController@getAbout');
+    Route::get('/', 'PagesController@getIndex');
+
 });
