@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row row-eq-height">
             <div class="col-md-10 ">
                 <div class="container">
                     <h2>CMS</h2>
@@ -10,17 +10,29 @@
                 </div>
 
                 <div class="container">
+                    <a class="btn btn-primary" href="{{route('cms.newProduct')}}">Nieuw product</a>
+                    <br>
+                    <br>
+                </div>
+
+
+                <div class="container">
+
+
 
                     @foreach($products as $product)
                         <div class="col-md-6 ">
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <label>Korte beschrijving</label>
+                                <label>Korte omschrijving</label>
                                 <p><?php echo $product->shortDescription ?></p>
 
+                                <label>Lange omschrijving</label>
+                                <p><?php echo $product->longDescription ?></p>
+
                                 <label>Prijs</label>
-                                <p><?php echo $product->price?></p>
+                                <p><?php echo str_replace('.', ',', $product->price)?></p>
 
                                 <label>Foto</label>
                                 <p><?php echo $product->imagePath ?></p>
@@ -40,3 +52,4 @@
         </div>
     </div>
 @endsection
+

@@ -29,6 +29,17 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.index'
     ]);
 
+    Route::get('cms/nieuwproduct', [
+        'uses'  => 'CmsController@newProduct',
+        'as'    => 'cms.newProduct'
+    ]);
+
+    Route::put('cms/nieuwproduct', [
+        'uses'  => 'CmsController@createProduct',
+        'as'    => 'cms.createProduct'
+    ]);
+
+
     Route::put('cms/{product}', 'CmsController@updateProduct');
 
     Route::get('cms/{product}', [

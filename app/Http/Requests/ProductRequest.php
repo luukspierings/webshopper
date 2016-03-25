@@ -25,7 +25,9 @@ class ProductRequest extends Request
     public function rules()
     {
         return [
+
             'shortDescription' => 'required|string',
+            'longDescription' => 'string',
 
 
         ];
@@ -33,8 +35,9 @@ class ProductRequest extends Request
     public function messages()
     {
         return [
-            'shortDescription.required'    => 'Titel is verplicht!',
-            'shortDescription.string'       => 'Titel is niet geldig!',
+            'shortDescription.required'    => 'Korte omschrijving is verplicht!',
+            'shortDescription.string'       => 'Deze korte omschrijving is niet geldig!',
+            'longDescription.string'       => 'Deze lange omschrijving is niet geldig!',
 
 
 

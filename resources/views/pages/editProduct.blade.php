@@ -20,13 +20,24 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-group">
-                                    <label for="comment">Kleine beschrijving</label>
+                                    <label for="comment">Korte omschrijving</label>
                                     <p><input id="shortDescription" name="shortDescription" class="form-control" value="{{ $product->shortDescription }}"/></p>
+                                    @if($errors->has('shortDescription'))
+                                        <span class="help-block">{{ $errors->first('shortDescription') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="comment">Lange omschrijving</label>
+                                    <p><input id="longDescription" name="longDescription" class="form-control" value="{{ $product->longDescription }}"/></p>
+                                    @if($errors->has('longDescription'))
+                                        <span class="help-block">{{ $errors->first('longDescription') }}</span>
+                                    @endif
                                 </div>
 
                                 <div class="form-group">
                                     <label for="comment">Prijs</label>
-                                    <p><input id="price" name="price" class="form-control" type="number" value="{{ $product->price }}" min="0"/></p>
+                                    <p><input id="price" name="price" class="form-control" type="number" value="{{ $product->price }}" step="any"/></p>
                                 </div>
 
                                 {{--<div class="form-group">--}}
