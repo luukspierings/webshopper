@@ -27,10 +27,18 @@ class CmsController extends Controller
         }
     }
 
-    public function editProduct(ProductRequest $request,product $product){
+    public function editProduct(Product $product)
+    {
 
-        $product->shortDescription = $request->title;
-        $product->price = $request->thumbnail;
+        return view('pages/editProduct')->with('product', $product);
+    }
+
+
+    public function updateProduct(ProductRequest $request, Product $product){
+
+
+        $product->shortDescription = $request->shortDescription;
+        $product->price = $request->price;
 
         $product->save();
 

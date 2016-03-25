@@ -11,40 +11,24 @@
 
                 <div class="container">
 
-                    @foreach($products as $value)
+                    @foreach($products as $product)
                         <div class="col-md-6 ">
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <form method="POST" enctype="multipart/form-data" action="{{ route('cms.editProduct', ['product' => $value]) }}">
-                                    {{ method_field('PUT') }}
-                                    {{ csrf_field() }}
+                                <label>Korte beschrijving</label>
+                                <p><?php echo $product->shortDescription ?></p>
 
-                                    <div class="form-group">
-                                        <label>Kleine beschrijving</label>
-                                        <p><input class="form-control" value="{{ $value->shortDescription }}"/></p>
-                                    </div>
+                                <label>Prijs</label>
+                                <p><?php echo $product->price?></p>
 
-                                    <div class="form-group">
-                                        <label>Prijs</label>
-                                        <p><input class="form-control" type="number" value="{{ $value->price }}" min="0"/></p>
-                                    </div>
+                                <label>Foto</label>
+                                <p><?php echo $product->imagePath ?></p>
 
-                                    <div class="form-group">
-                                        <label>Foto</label>
-                                        <p><input type="file" class="form-control-file" value="{{ $value->imagePath }}" name="uploadedImage" accept="image/*" required></p>
-                                    </div>
-                                    <br>
-
-                                    <div class="form-group">
-                                        <a class="btn btn-primary col-md-3" type="submit">Opslaan</a>
-                                    </div>
-                                </form>
+                                <br>
+                                <a class="btn btn-warning col-md-3" href="{{route('cms.editProduct', ['product' => $product->id])}}" >Wijzigen</a>
 
                                 <a class="btn btn-danger col-md-3 col-md-offset-6">Verwijderen</a>
-
-
-
                             </div>
                         </div>
                         </div>

@@ -11,7 +11,11 @@ Route::group(['middleware' => 'web'], function () {
 
 
 //    Schema::table('products', function($table){
-//        $table->timestamps();
+//
+//
+//        $table->double('price', 8, 2);
+//
+//
 //    });
 
 
@@ -25,10 +29,14 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.index'
     ]);
 
-    Route::get('/cms/editproduct', [
+    Route::put('cms/{product}', 'CmsController@updateProduct');
+
+    Route::get('cms/{product}', [
         'uses'  => 'CmsController@editProduct',
         'as'    => 'cms.editProduct'
     ]);
+
+
 
 
 });

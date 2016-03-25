@@ -25,8 +25,19 @@ class ProductRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'string',
-            'thumbnail' => 'double'
+            'shortDescription' => 'required|string',
+
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'shortDescription.required'    => 'Titel is verplicht!',
+            'shortDescription.string'       => 'Titel is niet geldig!',
+
+
+
         ];
     }
 }
