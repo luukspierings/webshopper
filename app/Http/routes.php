@@ -9,9 +9,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-<<<<<<< HEAD
+
     Route::get('/dames', 'DamesController@index');
-=======
+
 
 //    Schema::table('products', function($table){
 //
@@ -21,8 +21,7 @@ Route::group(['middleware' => 'web'], function () {
 //
 //    });
 
-
->>>>>>> 5ba0a0430bfa61cfd6ea0fa809df7d043ac170d6
+    
     Route::get('/webshop', 'WebshopController@index');
     Route::get('/about', 'PagesController@getAbout');
     Route::get('/', 'PagesController@getIndex');
