@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+
+}
+html, body {
+    height: 100%;
+    background: url("../images/wood_04.png");
+    background-size: 50% 50%;
+    background-repeat: repeat;
+    font-family: "Gill Sans";
+    font-size: 16px;
+}
+
+.header{
+    background: white;
+
+}
+
+.subheader{
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 1px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 1px 0px rgba(50, 50, 50, 0.75);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.logo{
+    margin-right: 115px;
+}
+
+.page-wrap {
+    min-height: calc(100% - 142px);
+    min-height: -webkit-calc(100% - 142px); /* google, safari */
+    min-height: -moz-calc(100% - 142px); /* firefox */
+    margin-bottom: -50px;
+}
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+.site-footer, .page-wrap:after {
+    height: 70px;
+}
+.site-footer {
+    background: dimgray;
+    color: ghostwhite;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.footerlink{
+    color: ghostwhite;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: none;
+
+}
+
+.footerlink:hover{
+    color: papayawhip;
+    background: none;
+
+}
+
+.navbar-nobottommargin {
+    margin-bottom: 0;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    background-color: transparent;
+}
+
+
+.welkomWrapper{
+    padding-top: 20px ;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    background: white;
+}
+
+.filtercolumn{
+    border-radius: 5px 0 0 5px;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    background: rgba(245, 245, 245, 0.9);
+}
+
+.groupfilterlink{
+    color: black;
+    font-weight: bolder;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.filterlink{
+    color: black;
+    display: inline-block;
+    margin:4px 0;
+    font-size: 16px;
+
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
