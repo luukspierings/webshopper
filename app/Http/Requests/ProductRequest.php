@@ -26,6 +26,7 @@ class ProductRequest extends Request
     {
         return [
 
+            'name' => 'required|string',
             'shortDescription' => 'required|string',
             'longDescription' => 'string',
 
@@ -35,10 +36,11 @@ class ProductRequest extends Request
     public function messages()
     {
         return [
-            'shortDescription.required'    => 'Korte omschrijving is verplicht!',
-            'shortDescription.string'       => 'Deze korte omschrijving is niet geldig!',
+            'shortDescription.required'    => 'Een korte omschrijving is verplicht!',
+            'shortDescription.string'      => 'Deze korte omschrijving is niet geldig!',
             'longDescription.string'       => 'Deze lange omschrijving is niet geldig!',
-
+            'name.required'                => 'Een naam is verplicht!' ,
+            'name.string'                  => 'Deze naam is niet geldig!' ,
 
 
         ];

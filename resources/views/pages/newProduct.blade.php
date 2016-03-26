@@ -20,6 +20,14 @@
                                     {{ csrf_field() }}
 
                                     <div class="form-group">
+                                        <label for="comment">Naam</label>
+                                        <p><input id="name" name="name" class="form-control"/></p>
+                                        @if($errors->has('name'))
+                                            <span class="help-block">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="comment">Korte omschrijving</label>
                                         <p><input id="shortDescription" name="shortDescription" class="form-control"/></p>
                                         @if($errors->has('shortDescription'))
