@@ -6,39 +6,47 @@
 
             <!-- Filters -->
             <div class="col-md-2 filtercolumn">
-                <h3>
-                    <a class="groupfilterlink" data-toggle="collapse" href="#collapse1">Kleding</a>
-                </h3>
-                <div id="collapse1" class="panel-collapse collapse">
-                    <ul class="taxons-list list-group">
-                        <li><a class="filterlink" href="#">Jassen</a></li>
-                        <li><a class="filterlink" href="#">Broeken</a></li>
-                        <li><a class="filterlink" href="#">Blouses</a></li>
-                        <li><a class="filterlink" href="#">Truien</a></li>
-                        <li><a class="filterlink" href="#">Sportkleding</a></li>
-                        <li><a class="filterlink" href="#">T-shirts</a></li>
-                    </ul>
-                </div>
+                <h3>Kleding</h3>
+                <ul class="taxons-list">
+                    <li><a class="filterlink" href="#">Jassen</a></li>
+                    <li><a class="filterlink" href="#">Broeken</a></li>
+                    <li><a class="filterlink" href="#">Blouses</a></li>
+                    <li><a class="filterlink" href="#">Truien</a></li>
+                    <li><a class="filterlink" href="#">Sportkleding</a></li>
+                    <li><a class="filterlink" href="#">T-shirts</a></li>
+                </ul>
 
-                <h3>
-                    <a class="groupfilterlink" data-toggle="collapse" href="#collapse2">Merken</a>
-                </h3>
-                <div id="collapse2" class="panel-collapse collapse">
-                    <ul class="taxons-list list-group">
-                        <li><a class="filterlink" href="#">C&A</a></li>
-                        <li><a class="filterlink" href="#">ESPRIT</a></li>
-                        <li><a class="filterlink" href="#">MANGO</a></li>
-                        <li><a class="filterlink" href="#">River Island</a></li>
-                        <li><a class="filterlink" href="#">Steps</a></li>
-                    </ul>
-                </div>
+                <br>
+
+                <h3>Merken</h3>
+                <ul class="taxons-list list-group">
+                    <li><a class="filterlink" href="#">C&A</a></li>
+                    <li><a class="filterlink" href="#">ESPRIT</a></li>
+                    <li><a class="filterlink" href="#">MANGO</a></li>
+                    <li><a class="filterlink" href="#">River Island</a></li>
+                    <li><a class="filterlink" href="#">Steps</a></li>
+                </ul>
             </div>
 
             <!-- Producten -->
-            <div class="col-md-10">
-                <div class="row">
+            <div class="col-md-10 productthumb nospacing">
+                <h3 class="text-center">Damesmode</h3>
+
+                <div class="productgrid">
+                    @for ($i = 0; $i < 9; $i++)
+                        <div class="col-lg-4 col-md-4 col-xs-4 nospacing">
+                            <div class="product">
+                                <img class="img-responsive" src="http://placehold.it/350x300" alt="">
+                                <h4 class="text-center">Naam van product</h4>
+                                <h3 class="text-center">€ 9,45</h3>
+                            </div>
+                        </div>
+                    @endfor
 
                 </div>
+
+
+
             </div>
         </div>
     </div>
