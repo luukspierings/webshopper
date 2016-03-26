@@ -21,7 +21,8 @@ Route::group(['middleware' => 'web'], function () {
 //
 //    });
 
-    
+
+    Route::get('/product', 'ProductdetailController@index');
     Route::get('/webshop', 'WebshopController@index');
     Route::get('/about', 'PagesController@getAbout');
     Route::get('/', 'PagesController@getIndex');

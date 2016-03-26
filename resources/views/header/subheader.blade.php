@@ -37,8 +37,6 @@
             <ul class="nav navbar-nav ">
                 <li><a href="{{ url('/dames') }}">Dames</a></li>
                 <li><a href="{{ url('/heren') }}">Heren</a></li>
-                <li><a href="{{ url('/kinderen') }}">Kinderen</a></li>
-                <li><a href="{{ url('/babies') }}">Babies</a></li>
             </ul>
 
         </div>

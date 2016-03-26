@@ -7,7 +7,7 @@
             <!-- Filters -->
             <div class="col-md-2 filtercolumn">
                 <h3>Kleding</h3>
-                <ul class="taxons-list">
+                <ul class="taxons-list filterlist">
                     <li><a class="filterlink" href="#">Jassen</a></li>
                     <li><a class="filterlink" href="#">Broeken</a></li>
                     <li><a class="filterlink" href="#">Blouses</a></li>
@@ -19,7 +19,7 @@
                 <br>
 
                 <h3>Merken</h3>
-                <ul class="taxons-list list-group">
+                <ul class="taxons-list list-group filterlist">
                     <li><a class="filterlink" href="#">C&A</a></li>
                     <li><a class="filterlink" href="#">ESPRIT</a></li>
                     <li><a class="filterlink" href="#">MANGO</a></li>
