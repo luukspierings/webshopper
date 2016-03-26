@@ -34,6 +34,7 @@ class CmsController extends Controller
     public function createProduct(ProductRequest $request){
 
         $product = new Product();
+        $product->name = $request->name;
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
         $product->price = $request->price;
@@ -55,6 +56,7 @@ class CmsController extends Controller
 
     public function updateProduct(ProductRequest $request, Product $product){
 
+        $product->name = $request->name;
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
         $product->price = $request->price;

@@ -21,21 +21,30 @@
 
 
                     @foreach($products as $product)
-                        <div class="col-md-6 ">
+                        <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <label>Korte omschrijving</label>
-                                <p><?php echo $product->shortDescription ?></p>
 
-                                <label>Lange omschrijving</label>
-                                <p><?php echo $product->longDescription ?></p>
+                                <H1><?php echo $product->name ?></H1>
 
-                                <label>Prijs</label>
-                                <p><?php echo str_replace('.', ',', $product->price)?></p>
+                                <div class="productattr">
+                                    <label>Korte omschrijving</label>
+                                    <div class="content"><?php echo $product->shortDescription ?></div>
+                                </div>
+
+                                <div class="productattr">
+                                    <label>Lange omschrijving</label>
+                                    <div class="content"><?php echo $product->longDescription ?></div>
+                                </div>
+
+                                <div class="productattr">
+                                    <label>Prijs</label>
+                                    <div class="content"><?php echo str_replace('.', ',', $product->price)?></div>
+                                </div>
 
                                 <label>Foto</label>
-                                <p><?php echo $product->imagePath ?></p>
+                                <div class="content"><?php echo $product->imagePath ?></div>
 
                                 <br>
                                 <a class="btn btn-warning col-md-3" href="{{route('cms.editProduct', ['product' => $product->id])}}" >Wijzigen</a>

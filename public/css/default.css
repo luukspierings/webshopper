@@ -227,3 +227,20 @@ select {
 .btnwinkelmand:hover{
     background: rgb(147, 136, 127);
 }
+
+.content{
+    text-wrap: normal;
+    word-wrap: break-word;
+    padding: 0px 0px 5px 0px;
+    font-size: 12pt;
+}
+
+.productattr{
+    font-size: 16pt;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}

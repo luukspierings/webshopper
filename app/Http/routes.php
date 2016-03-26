@@ -14,10 +14,7 @@ Route::group(['middleware' => 'web'], function () {
 
 
 //    Schema::table('products', function($table){
-//
-//
-//        $table->double('price', 8, 2);
-//
+//        $table->string('name', 20);
 //
 //    });
 
