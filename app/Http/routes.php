@@ -10,7 +10,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
 
-    Route::get('/dames', 'DamesController@index');
+
 
 
 //    Schema::table('products', function($table){
@@ -18,7 +18,8 @@ Route::group(['middleware' => 'web'], function () {
 //
 //    });
 
-
+    Route::get('/heren', 'HerenController@index');
+    Route::get('/dames', 'DamesController@index');
     Route::get('/product', 'ProductdetailController@index');
     Route::get('/webshop', 'WebshopController@index');
     Route::get('/about', 'PagesController@getAbout');
