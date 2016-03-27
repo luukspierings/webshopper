@@ -34,6 +34,17 @@ select {
     background: url(../images/dropdownarrow.png) 98% / 15% no-repeat #eee;
 }
 
+table{
+    background: whitesmoke;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+thead{
+    background: dimgray;
+    color: ghostwhite;
+}
 .nospacing{
     padding: 0;
     margin: 0;
@@ -237,6 +248,39 @@ select {
 
 .productattr{
     font-size: 16pt;
+}
+
+.tablewrapper{
+    padding: 20px ;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 3px 0px rgba(50, 50, 50, 0.75);
+    background: rgba(245, 245, 245, 1);
+}
+
+.btnshoppingcart{
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid #111;
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: rgb(168, 157, 148);
+}
+
+.totalprice{
+    float: right !important;
+    margin: 5px 5px 20px 10px;
+}
+
+.pull-right{
+    margin: 0;
+    padding: 0;
 }
 
 ul {
