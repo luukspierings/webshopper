@@ -32,16 +32,18 @@
             <div class="col-md-10 productthumb nospacing">
                 <h3 class="text-center">Damesmode</h3>
 
+
+
                 <div class="productgrid">
-                    @for ($i = 0; $i < 9; $i++)
+                    @foreach($products as $value)
                         <div class="col-lg-4 col-md-4 col-xs-4 nospacing">
                             <div class="product">
                                 <img class="img-responsive" src="http://placehold.it/350x300" alt="">
-                                <h4 class="text-center">Naam van product</h4>
-                                <h3 class="text-center">€ 9,45</h3>
+                                <h4 class="text-center">{{$value->shortDescription}}</h4>
+                                <h3 class="text-center">€ {{$value->price}}</h3>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
 
                 </div>
 
