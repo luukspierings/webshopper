@@ -14,10 +14,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function($t){
             $t->increments('id');
+            $t->string('name');
+            $t->double('price');
+            $t->integer('mainCategory_id');
             $t->integer('productCategory_id');
+            $t->integer('brandCategory_id');
             $t->text('shortDescription');
             $t->text('longDescription');
-            $t->double('price');
             $t->timestamps();
         });
     }

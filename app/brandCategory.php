@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model
+class brandCategory extends Model
 {
-    protected $table = 'productCategories';
+    protected $table = 'brandCategories';
 
     protected $fillable = [
         'name', 'mainCategory_id'
@@ -15,4 +15,5 @@ class ProductCategory extends Model
     public function mainCategory(){
         return $this->hasMany('App\mainCategory', 'mainCategory_id');
     }
+
 }
