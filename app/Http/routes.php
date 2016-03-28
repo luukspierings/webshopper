@@ -43,6 +43,7 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
 
+
     Route::put('cms/{product}', 'CmsController@updateProduct');
 
     Route::get('cms/{product}', [
@@ -50,6 +51,10 @@ Route::group(['middleware' => 'web'], function () {
         'as'    => 'cms.editProduct'
     ]);
 
+    Route::delete('cmsdelete/{product}', [
+        'uses'  => 'CmsController@deleteProduct',
+        'as'    => 'cms.deleteProduct'
+    ]);
 
 
 

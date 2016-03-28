@@ -15,7 +15,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <form method="POST" action="{{ route('cms.createProduct')}}">
+                                <form method="POST" action="{{ route('cms.createProduct')}}" enctype="multipart/form-data">
                                     {{ method_field('PUT') }}
                                     {{ csrf_field() }}
 
@@ -48,10 +48,10 @@
                                         <p><input id="price" name="price" class="form-control" type="number" step="any"/></p>
                                     </div>
 
-                                    {{--<div class="form-group">--}}
-                                    {{--<label>Foto</label>--}}
-                                    {{--<p><input type="file" class="form-control-file" value="{{ $product->imagePath }}" name="uploadedImage" accept="image/*"></p>--}}
-                                    {{--</div>--}}
+                                    <div class="form-group">
+                                    <label>Foto</label>
+                                    <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" ></p>
+                                    </div>
                                     <br>
 
                                     <div class="form-group">
