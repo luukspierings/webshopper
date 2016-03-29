@@ -16,9 +16,8 @@ class CreateProductsTable extends Migration
             $t->increments('id');
             $t->string('name');
             $t->double('price');
-            $t->integer('mainCategory_id');
-            $t->integer('productCategory_id');
-            $t->integer('brandCategory_id');
+            $t->integer('genderCategory_id');
+            $t->integer('clothCategory_id');
             $t->text('shortDescription');
             $t->text('longDescription');
             $t->timestamps();
