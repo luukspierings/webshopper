@@ -51,6 +51,9 @@
                                     <div class="form-group">
                                     <label>Foto</label>
                                     <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" ></p>
+                                        @if($errors->has('uploadedImage'))
+                                            <span class="help-block">{{ $errors->first('uploadedImage') }}</span>
+                                        @endif
                                     </div>
                                     <br>
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Auth;
 use App\Http\Requests;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic   as Image;
 
 class CmsController extends Controller
@@ -22,7 +24,7 @@ class CmsController extends Controller
             $products = product::all();
 
             foreach($products as $prod){
-                $prod->imagesrc = $this::$imageDirectory . $prod->name . $this::$imageExtension;
+                $prod->imagesrc = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
             }
 
             return view('pages/cms')->with('products', $products);
@@ -44,15 +46,15 @@ class CmsController extends Controller
         $product->longDescription = $request->longDescription;
         $product->price = $request->price;
 
-        $image = Image::make($request->file('uploadedImage'));
-        $this->storeImage($image, $request->name);
-
-        Product::create([
+        $p = Product::create([
             'name' => $product->name,
             'shortDescription' => $product->shortDescription,
             'longDescription' => $product->longDescription,
             'price' => $product->price
         ]);
+
+        $image = Image::make($request->file('uploadedImage'));
+        $this->storeImage($image, $p->id.'image');
 
         return redirect('/cms');
 
@@ -92,11 +94,18 @@ class CmsController extends Controller
         $product->price = $request->price;
         $product->save();
 
+        $image = Image::make($request->file('uploadedImage'));
+        $this->storeImage($image, $product->id.'image');
+
         return redirect('/cms');
     }
 
     public function deleteProduct(Product $product){
+
+        unlink(public_path() .$this::$imageDirectory . $product->id . 'image' . $this::$imageExtension);
         Product::destroy($product->id);
+
+
 
         return redirect('/cms');
     }

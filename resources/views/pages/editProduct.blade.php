@@ -15,9 +15,11 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
 
-                            <form method="POST" action="{{ route('cms.editProduct', ['product' => $product]) }}">
+                            <form method="POST" action="{{ route('cms.editProduct', ['product' => $product]) }}" enctype="multipart/form-data">
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
+
+                                {{--<p hidden id="id" class="form-control">{{$product->id}}</p>--}}
 
                                 <div class="form-group">
                                     <label for="comment">Naam</label>
@@ -48,10 +50,13 @@
                                     <p><input id="price" name="price" class="form-control" type="number" value="{{ $product->price }}" step="any"/></p>
                                 </div>
 
-                                {{--<div class="form-group">--}}
-                                    {{--<label>Foto</label>--}}
-                                    {{--<p><input type="file" class="form-control-file" value="{{ $product->imagePath }}" name="uploadedImage" accept="image/*"></p>--}}
-                                {{--</div>--}}
+                                <div class="form-group">
+                                    <label>Foto</label>
+                                    <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" ></p>
+                                    @if($errors->has('uploadedImage'))
+                                        <span class="help-block">{{ $errors->first('uploadedImage') }}</span>
+                                    @endif
+                                </div>
                                 <br>
 
                                 <div class="form-group">
