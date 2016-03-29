@@ -19,7 +19,6 @@
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
 
-                                {{--<p hidden id="id" class="form-control">{{$product->id}}</p>--}}
 
                                 <div class="form-group">
                                     <label for="comment">Naam</label>

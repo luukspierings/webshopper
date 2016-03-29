@@ -27,32 +27,37 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'PagesController@getIndex');
 
 
+    // CMS HOME
     Route::get('/cms',[
         'uses'  =>  'CmsController@index',
         'as'    =>  'cms.index'
     ]);
 
-    Route::get('cms/nieuwproduct', [
-        'uses'  => 'CmsController@newProduct',
+    // CMS PRODUCTS
+    Route::get('/cms/producten',[
+        'uses'  =>  'CmsProductsController@index',
+        'as'    =>  'cms.indexProduct'
+    ]);
+
+    Route::get('cms/producten/nieuwproduct', [
+        'uses'  => 'CmsProductsController@newProduct',
         'as'    => 'cms.newProduct'
     ]);
 
-    Route::put('cms/nieuwproduct', [
-        'uses'  => 'CmsController@createProduct',
+    Route::put('cms/producten/nieuwproduct', [
+        'uses'  => 'CmsProductsController@createProduct',
         'as'    => 'cms.createProduct'
     ]);
 
+    Route::put('cms/producten/{product}', 'CmsController@updateProduct');
 
-
-    Route::put('cms/{product}', 'CmsController@updateProduct');
-
-    Route::get('cms/{product}', [
-        'uses'  => 'CmsController@editProduct',
+    Route::get('cms/producten/{product}', [
+        'uses'  => 'CmsProductsController@editProduct',
         'as'    => 'cms.editProduct'
     ]);
 
-    Route::delete('cmsdelete/{product}', [
-        'uses'  => 'CmsController@deleteProduct',
+    Route::delete('cms/productendelete/{product}', [
+        'uses'  => 'CmsProductsController@deleteProduct',
         'as'    => 'cms.deleteProduct'
     ]);
 

@@ -5,7 +5,7 @@
         <div class="row row-eq-height">
             <div class="col-md-10 ">
                 <div class="container">
-                    <h2>CMS</h2>
+                    <h2>CMS Producten</h2>
                     <hr>
                 </div>
 
