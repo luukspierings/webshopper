@@ -15,7 +15,6 @@ class CreateProductCategoriesTable extends Migration
         Schema::create('productCategories', function($t){
             $t->increments('id');
             $t->string('name');
-            $t->integer('mainCategory_id');
             $t->timestamps();
         });
     }

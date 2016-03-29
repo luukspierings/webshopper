@@ -9,11 +9,12 @@ class brandCategory extends Model
     protected $table = 'brandCategories';
 
     protected $fillable = [
-        'name', 'mainCategory_id'
+        'name',
     ];
 
-    public function mainCategory(){
-        return $this->hasMany('App\mainCategory', 'mainCategory_id');
+    public function mains()
+    {
+        return $this->belongsToMany(mainCategory::class, 'brand_main', 'brandCategory_id' , 'mainCategory_id');
     }
 
 }

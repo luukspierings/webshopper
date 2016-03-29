@@ -17,6 +17,17 @@ class CreateMainCategoriesTable extends Migration
             $t->string('name');
             $t->timestamps();
         });
+
+        Schema::create('brand_main', function (Blueprint $table) {
+            $table->integer('brandCategory_id')->unsigned();
+            $table->integer('mainCategory_id')->unsigned();
+        });
+
+        Schema::table('brand_main', function (Blueprint $table) {
+            $table->foreign('brandCategory_id')->references('id')->on('brandCategories')->onDelete('cascade');
+            $table->foreign('mainCategory_id')->references('id')->on('mainCategories')->onDelete('cascade');
+            $table->primary(['brandCategory_id', 'mainCategory_id']);
+        });
     }
 
     /**
@@ -26,6 +37,7 @@ class CreateMainCategoriesTable extends Migration
      */
     public function down()
     {
+        Schema::drop('brand_main');
         Schema::drop('mainCategories');
     }
 }

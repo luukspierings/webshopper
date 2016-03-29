@@ -15,7 +15,6 @@ class CreateBrandCategoriesTable extends Migration
         Schema::create('brandCategories', function($t){
             $t->increments('id');
             $t->string('name');
-            $t->integer('mainCategory_id');
             $t->timestamps();
         });
     }
