@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class CmsController extends Controller
+class CmsHomeController extends Controller
 {
 
     public function index(){

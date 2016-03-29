@@ -29,7 +29,7 @@ Route::group(['middleware' => 'web'], function () {
 
     // CMS HOME
     Route::get('/cms',[
-        'uses'  =>  'CmsController@index',
+        'uses'  =>  'CmsHomeController@index',
         'as'    =>  'cms.index'
     ]);
 
