@@ -40,11 +40,8 @@
                    $categories = \App\mainCategory::all();
                 ?>
                     @foreach($categories as $category)
-                        <li><a href="{{ $category->name }}"><?php echo $category->name?></a></li>
+                        <li><a href="{{ URL::action('ShopController@getIndex', $category->id)}}">{{$category->name}}</a></li>
                     @endforeach
-
-                <li><a href="{{ url('/dames') }}">Dames</a></li>
-                <li><a href="{{ url('/heren') }}">Heren</a></li>
             </ul>
 
         </div>
