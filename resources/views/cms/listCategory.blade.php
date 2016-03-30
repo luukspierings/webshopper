@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row row-eq-height">
-            <div class="col-md-10 ">
+            <div style="margin-bottom: 100px" class="col-md-10 ">
                 <div class="container">
                     <h2>CMS Categorieën</h2>
                     <hr>

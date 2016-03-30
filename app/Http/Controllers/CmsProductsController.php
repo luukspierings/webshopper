@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\product;
+use App\mainCategory;
+use App\subCategory;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Auth;
@@ -27,6 +29,7 @@ class CmsProductsController extends Controller
                 $prod->imagesrc = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
             }
 
+
             return view('cms/listProduct')->with('products', $products);
         }
         else{
@@ -35,7 +38,15 @@ class CmsProductsController extends Controller
     }
 
     public function newProduct(){
-        return view('cms/newProduct');
+
+        $categories = [];
+        $main = mainCategory::all();
+        $sub = subCategory::all();
+
+        $categories['main'] = $main;
+        $categories['sub'] = $sub;
+
+        return view('cms/newProduct')->with('categories', $categories);
     }
 
     public function createProduct(ProductRequest $request){
@@ -45,12 +56,16 @@ class CmsProductsController extends Controller
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
         $product->price = $request->price;
+        $product->mainCategory_id = $request->mainCategory;
+        $product->subCategory_id = $request->subCategory;
 
         $p = Product::create([
             'name' => $product->name,
             'shortDescription' => $product->shortDescription,
             'longDescription' => $product->longDescription,
-            'price' => $product->price
+            'price' => $product->price,
+            'mainCategory_id' => $product->mainCategory_id,
+            'subCategory_id' => $product->subCategory_id
         ]);
 
         $image = Image::make($request->file('uploadedImage'));
