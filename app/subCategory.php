@@ -12,7 +12,7 @@ class subCategory extends Model
         'name'
     ];
 
-    public function gender()
+    public function main()
     {
         return $this->belongsToMany(mainCategory::class, 'sub_main', 'subCategory_id' , 'mainCategory_id');
     }

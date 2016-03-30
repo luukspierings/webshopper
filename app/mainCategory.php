@@ -13,7 +13,7 @@ class mainCategory extends Model
     ];
 
 
-   public function cloth()
+   public function sub()
    {
        return $this->belongsToMany(subCategory::class, 'sub_main', 'mainCategory_id', 'subCategory_id');
    }

@@ -19,7 +19,7 @@
 
             <!-- product image -->
             <div class="col-md-10 productcolumn nospacing">
-                <h2 class="text-center productname">Naam product</h2>
+                <h2 class="text-center productname">{{$product->name}}</h2>
 
                 <hr>
 
@@ -32,20 +32,14 @@
                 <div class="col-md-6">
                     <div class="productdetails">
                         <h3>Artikelomschrijving</h3>
-                        <p>Regular dames jeans van Yessica uit de C&A collectie, uitgevoerd in een licht elastische katoenkwaliteit.
-                            Het model is voorzien van opgestikte slijtage details, een rits- en knoopsluiting, riemlussen, 2 steekzakken en 1 muntzakje aan de voorkant en 2
-                        </p>
+                        <p>{{$product->longDescription}}</p>
 
                         <hr>
 
                         <h3>Informatie</h3>
-                        <ul class="productdetailslist">
-                            <li>Materiaal: 75% katoen/23% polyester/2% elasthan</li>
-                            <li>Kleur: Donkergrijs</li>
-                            <li>Binnenbeenlengte (cm): 80</li>
-                        </ul>
+                        <p>{{$product->shortDescription}}</p>
 
-                        <h3>€ 9,45</h3>
+                        <h3>€ {{$product->price}}</h3>
 
                         <hr>
 
