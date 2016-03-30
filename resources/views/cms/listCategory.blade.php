@@ -15,12 +15,19 @@
 
                     <h3>Categorieën</h3>
 
-                    @foreach($categories as $category)
+                    @foreach($categories['main'] as $category)
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <div class="content">
+                                <div class="content col-md-12">
                                     <?php echo $category->name ?>
+                                </div>
+                                <br><br>
+                                <div class="content">
+                                    <a class="btn btn-warning col-md-5 ">Wijzigen</a>
+                                </div>
+                                <div class="content">
+                                    <a class="btn btn-danger col-md-5 col-md-offset-2">Verwijderen</a>
                                 </div>
 
                             </div>
@@ -32,17 +39,27 @@
 
                     <h3>Sub-categorieën</h3>
 
-                    @foreach($categories as $category)
+                    @foreach($categories['sub'] as $category)
                         <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <div class="content">
+                                <div class="content col-md-12">
                                     <?php echo $category->name ?>
+                                </div>
+                                <br><br>
+                                <div class="content">
+                                    <a class="btn btn-warning col-md-5 ">Wijzigen</a>
+                                </div>
+                                <div class="content">
+                                    <a class="btn btn-danger col-md-5 col-md-offset-2">Verwijderen</a>
                                 </div>
 
                             </div>
                         </div>
                     @endforeach
+
+
+                    
                 </div>
 
 
