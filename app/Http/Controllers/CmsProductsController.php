@@ -29,8 +29,15 @@ class CmsProductsController extends Controller
                 $prod->imagesrc = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
             }
 
+            $values = [];
+            $main = mainCategory::all();
+            $sub = subCategory::all();
 
-            return view('cms/listProduct')->with('products', $products);
+            $values['main'] = $main;
+            $values['sub'] = $sub;
+            $values['products'] = $products;
+
+            return view('cms/listProduct')->with('values', $values);
         }
         else{
             return redirect('/');

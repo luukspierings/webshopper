@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="container">
-                    @foreach($products as $product)
+                    @foreach($values['products'] as $product)
 
                         <div class="panel panel-default">
                             <div class="panel-body">
@@ -27,20 +27,36 @@
 
                                 <div class="col-md-6 productattr">
 
-                                        <label>Korte omschrijving</label>
-                                        <div class="content"><?php echo $product->shortDescription ?></div>
+                                    <label>Korte omschrijving</label>
+                                    <div class="content"><?php echo $product->shortDescription ?></div>
 
+                                    <label>Lange omschrijving</label>
+                                    <div class="content"><?php echo $product->longDescription ?></div>
 
+                                    <label>Prijs</label>
+                                    <div class="content"><?php echo str_replace('.', ',', $product->price)?></div>
 
-                                        <label>Lange omschrijving</label>
-                                        <div class="content"><?php echo $product->longDescription ?></div>
+                                    <label>Categorie</label>
+                                    <div class="content">
+                                        <?php
+                                        foreach($values['main'] as $category){
+                                            if($category->id == $product->mainCategory_id ){
+                                                echo $category->name;
+                                            }
+                                        }
+                                        ?>
+                                    </div>
 
-
-
-                                        <label>Prijs</label>
-                                        <div class="content"><?php echo str_replace('.', ',', $product->price)?></div>
-
-
+                                    <label>Sub-categorie</label>
+                                    <div class="content">
+                                        <?php
+                                        foreach($values['sub'] as $category){
+                                            if($category->id == $product->subCategory_id ){
+                                                echo $category->name;
+                                            }
+                                        }
+                                        ?>
+                                    </div>
 
 
                                 </div>
