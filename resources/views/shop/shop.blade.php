@@ -30,9 +30,10 @@
                         <div class="product">
                             <a class="thumbnail" href="{{ URL::action('ProductdetailController@getIndex', $value->id) }}">
                                 <img class="img-responsive" src="http://placehold.it/350x300" alt="">
+                            </a>
                                 <h4 class="text-center">{{$value->shortDescription}}</h4>
                                 <h3 class="text-center">€ {{$value->price}}</h3>
-                            </a>
+
                         </div>
                     </div>
                     @endforeach

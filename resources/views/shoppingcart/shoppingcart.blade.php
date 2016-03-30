@@ -15,24 +15,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($list as $product)
                         <tr>
                             <td><button>X</button></td>
-                            <td>Broek</td>
+                            <td>{{$product->name}}</td>
                             <td>1</td>
-                            <td>€9,69</td>
+                            <td>€ {{$product->price}}</td>
                         </tr>
-                        <tr>
-                            <td><button>X</button></td>
-                            <td>Onderbroek</td>
-                            <td>2</td>
-                            <td>€48,69</td>
-                        </tr>
-                        <tr>
-                            <td><button>X</button></td>
-                            <td>Jas</td>
-                            <td>2</td>
-                            <td>€18,69</td>
-                        </tr>
+                        @endforeach
                         </tbody>
 
                     </table>

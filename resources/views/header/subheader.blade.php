@@ -13,12 +13,12 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/default.css') }}">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 </head>
 <body id="app-layout">
-<nav class="navbar navbar-default navbar-static-top subheader">
+<nav class="navbar navbar-default navbar-static-top subheader zindex">
     <div class="container">
         <div class="navbar-header">
 

@@ -11,12 +11,12 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-xs-6 thumb">
-                        <a class="thumbnail" href="{{ url('/dames') }}">
+                        <a class="thumbnail" href="{{ url('/shop/1') }}">
                             <img class="img-responsive" src="images/woman.jpg" alt="">
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-xs-6 thumb">
-                        <a class="thumbnail" href="{{ url('/heren') }}">
+                        <a class="thumbnail" href="{{ url('/shop/2') }}">
                             <img class="img-responsive" src="images/man.jpg" alt="">
                         </a>
                     </div>

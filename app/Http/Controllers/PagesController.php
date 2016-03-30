@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
+
 class PagesController extends Controller{
 
     public function getIndex(){

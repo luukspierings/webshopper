@@ -9,9 +9,7 @@ use App\product;
 class ShopController extends Controller{
 
     public function index(){
-        return view('shop/shop')
-            ->with('categories', subCategory::all())
-            ->with('products', product::all());
+        return redirect('/');
     }
 
 
@@ -19,7 +17,7 @@ class ShopController extends Controller{
         return view('shop/shop')
             ->with('main', mainCategory::find($id))
             ->with('categories',mainCategory::find($id)->sub()->get())
-            ->with('products', product::where('mainCategory_id', $id));
+            ->with('products', product::where('mainCategory_id', $id)->get());
 
     }
 
@@ -27,7 +25,7 @@ class ShopController extends Controller{
         return view('shop/shop')
             ->with('main', mainCategory::find($id))
             ->with('categories',mainCategory::find($id)->sub()->get())
-            ->with('products', product::where('mainCategory_id', $id)->where('subCategory_id',$category));
+            ->with('products', product::where('mainCategory_id', $id)->where('subCategory_id',$category)->get());
     }
 }
 

@@ -166,11 +166,12 @@ thead{
 }
 
 .product{
-    border-style: dashed;
+    border-style: solid;
     border-width: 3px;
     border-color: rgba(0, 0, 0, 0.15);
     padding: 10px;
     margin: 0px 5px 10px 5px;
+    background: white;
 }
 
 .previewthumb{
@@ -281,6 +282,10 @@ thead{
 .pull-right{
     margin: 0;
     padding: 0;
+}
+
+.zindex{
+    z-index: 5;
 }
 
 ul {

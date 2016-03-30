@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class Product extends Model
 {
 
@@ -13,16 +15,12 @@ class Product extends Model
        'name', 'mainCategory_id', 'subCategory_id', 'shortDescription', 'longDescription', 'price',
     ];
 
-    public function category(){
-        return $this->belongsTo('App\ProductCategory', 'productCategory_id');
-    }
-
-    public function brand(){
-        return $this->belongsTo('App\brandCategory', 'brandCategory_id');
+    public function sub(){
+        return $this->belongsTo(subCategory::class, 'subCategory_id');
     }
 
     public function main(){
-        return $this->belongsTo('App\mainCategory', 'mainCategory_id');
+        return $this->belongsTo(mainCategory::class, 'mainCategory_id');
     }
 
 }
