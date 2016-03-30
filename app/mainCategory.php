@@ -13,8 +13,8 @@ class mainCategory extends Model
     ];
 
 
-//    public function cloth()
-//    {
-//        return $this->belongsToMany(ClothCategory::class, 'cloth_gender', 'genderCategory_id', 'clothCategory_id');
-//    }
+   public function cloth()
+   {
+       return $this->belongsToMany(subCategory::class, 'sub_main', 'mainCategory_id', 'subCategory_id');
+   }
 }

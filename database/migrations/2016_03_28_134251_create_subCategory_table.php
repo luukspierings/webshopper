@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatesubCategoryTable extends Migration
+class CreateSubCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,9 @@ class CreatesubCategoryTable extends Migration
             $t->string('name');
             $t->timestamps();
         });
+
+        
+
     }
 
     /**

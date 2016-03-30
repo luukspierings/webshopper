@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\GenderCategory;
+use App\mainCategory;
 
 class ShopController extends Controller{
 
@@ -13,12 +13,12 @@ class ShopController extends Controller{
 
     public function getIndex($id){
         return view('shop/shop')
-            ->with('gender', GenderCategory::find($id));
+            ->with('gender', mainCategory::find($id));
     }
 
     public function getView($id, $category){
         return view('shop/shop')
-            ->with('gender', GenderCategory::find($id));
+            ->with('gender', mainCategory::find($id));
     }
 }
 

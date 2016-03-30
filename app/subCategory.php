@@ -12,9 +12,9 @@ class subCategory extends Model
         'name'
     ];
 
-//    public function gender()
-//    {
-//        return $this->belongsToMany(GenderCategory::class, 'cloth_gender', 'clothCategory_id' , 'genderCategory_id');
-//    }
+    public function gender()
+    {
+        return $this->belongsToMany(mainCategory::class, 'sub_main', 'subCategory_id' , 'mainCategory_id');
+    }
 
 }
