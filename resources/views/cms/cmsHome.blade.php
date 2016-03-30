@@ -16,7 +16,7 @@
                             <a href="cms/producten" class="btn btn-primary "style="width: 100%; font-size: large">Producten</a>
                         </div>
                         <div class="container col-md-4 ">
-                            <a class="btn btn-primary "style="width: 100%; font-size: large">Categorieën</a>
+                            <a href="cms/categorieën" class="btn btn-primary "style="width: 100%; font-size: large">Categorieën</a>
                         </div>
                         <div class="container col-md-4 ">
                             <a class="btn btn-primary" style="width: 100%; font-size: large">Orders</a>

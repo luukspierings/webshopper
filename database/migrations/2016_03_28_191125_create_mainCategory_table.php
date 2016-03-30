@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClothCategoryTable extends Migration
+class CreatemainCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateClothCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('clothCategory', function($t){
+        Schema::create('mainCategory', function($t){
             $t->increments('id');
             $t->string('name');
             $t->timestamps();
         });
+
     }
 
     /**
@@ -26,6 +27,6 @@ class CreateClothCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('clothCategory');
+        Schema::drop('mainCategory');
     }
 }
