@@ -81,6 +81,16 @@ class CmsCategoryController extends Controller
         return redirect('/cms/categorieën');
     }
 
+    public function deleteMainCategory(mainCategory $mainCategory){
+        mainCategory::destroy($mainCategory->id);
+
+        return redirect('/cms/categorieën');
+    }
+    public function deleteSubCategory(subCategory $subCategory){
+        subCategory::destroy($subCategory->id);
+
+        return redirect('/cms/categorieën');
+    }
 
 
 

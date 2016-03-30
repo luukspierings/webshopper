@@ -74,6 +74,17 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
 
+    Route::delete('cms/categorieën/maindelete/{mainCategory}', [
+        'uses'  => 'CmsCategoryController@deleteMainCategory',
+        'as'    => 'cms.deleteMainCategory'
+    ]);
+
+    Route::delete('cms/categorieën/subdelete/{subCategory}', [
+        'uses'  => 'CmsCategoryController@deleteSubCategory',
+        'as'    => 'cms.deleteSubCategory'
+    ]);
+
+
 
     // CMS PRODUCTS
     Route::get('/cms/producten',[

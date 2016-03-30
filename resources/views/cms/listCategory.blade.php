@@ -27,7 +27,12 @@
                                     <a class="btn btn-default col-md-5 " href="{{route('cms.editMainCategory', ['mainCategory' => $category->id])}}">Wijzigen</a>
                                 </div>
                                 <div class="content">
-                                    <a class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</a>
+                                    <form method="POST" action="{{route('cms.deleteMainCategory', ['mainCategory' => $category->id])}}">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</button>
+                                    </form>
+
                                 </div>
 
                             </div>
@@ -51,7 +56,11 @@
                                     <a class="btn btn-default col-md-5 " href="{{route('cms.editSubCategory', ['subCategory' => $category->id])}}">Wijzigen</a>
                                 </div>
                                 <div class="content">
-                                    <a class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</a>
+                                    <form method="POST" action="{{route('cms.deleteSubCategory', ['subCategory' => $category->id])}}">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</button>
+                                    </form>
                                 </div>
 
                             </div>
