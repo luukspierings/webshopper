@@ -24,7 +24,7 @@
                                 </div>
                                 <br><br>
                                 <div class="content">
-                                    <a class="btn btn-default col-md-5 ">Wijzigen</a>
+                                    <a class="btn btn-default col-md-5 " href="{{route('cms.editMainCategory', ['mainCategory' => $category->id])}}">Wijzigen</a>
                                 </div>
                                 <div class="content">
                                     <a class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</a>
@@ -48,7 +48,7 @@
                                 </div>
                                 <br><br>
                                 <div class="content">
-                                    <a class="btn btn-default col-md-5 ">Wijzigen</a>
+                                    <a class="btn btn-default col-md-5 " href="{{route('cms.editSubCategory', ['subCategory' => $category->id])}}">Wijzigen</a>
                                 </div>
                                 <div class="content">
                                     <a class="btn btn-default col-md-5 col-md-offset-2">Verwijderen</a>

@@ -59,6 +59,20 @@ Route::group(['middleware' => 'web'], function () {
         'as'    => 'cms.createSubCategory'
     ]);
 
+    Route::put('cms/categorieën/main/{mainCategory}', 'CmsCategoryController@updateMainCategory');
+
+    Route::get('cms/categorieën/main/{mainCategory}', [
+        'uses'  => 'CmsCategoryController@editMainCategory',
+        'as'    => 'cms.editMainCategory'
+    ]);
+
+    Route::put('cms/categorieën/sub/{subCategory}', 'CmsCategoryController@updateSubCategory');
+
+    Route::get('cms/categorieën/sub/{subCategory}', [
+        'uses'  => 'CmsCategoryController@editSubCategory',
+        'as'    => 'cms.editSubCategory'
+    ]);
+
 
 
     // CMS PRODUCTS

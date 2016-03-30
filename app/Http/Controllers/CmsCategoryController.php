@@ -27,7 +27,6 @@ class CmsCategoryController extends Controller
     public function newMainCategory(){
         return view('cms/newMainCategory');
     }
-
     public function createMainCategory(CategoryRequest $request){
 
         $cat = new mainCategory();
@@ -40,10 +39,10 @@ class CmsCategoryController extends Controller
         return redirect('/cms/categorieën');
 
     }
+
     public function newSubCategory(){
         return view('cms/newSubCategory');
     }
-
     public function createSubCategory(CategoryRequest $request){
 
         $cat = new subCategory();
@@ -55,6 +54,31 @@ class CmsCategoryController extends Controller
 
         return redirect('/cms/categorieën');
 
+    }
+
+
+    public function editMainCategory(mainCategory $mainCategory)
+    {
+        return view('cms/editMainCategory')->with('mainCategory', $mainCategory);
+    }
+    public function updateMainCategory(CategoryRequest $request, mainCategory $mainCategory){
+
+        $mainCategory->name = $request->name;
+        $mainCategory->save();
+
+        return redirect('/cms/categorieën');
+    }
+
+    public function editSubCategory(subCategory $subCategory)
+    {
+        return view('cms/editSubCategory')->with('subCategory', $subCategory);
+    }
+    public function updateSubCategory(CategoryRequest $request, subCategory $subCategory){
+
+        $subCategory->name = $request->name;
+        $subCategory->save();
+
+        return redirect('/cms/categorieën');
     }
 
 
