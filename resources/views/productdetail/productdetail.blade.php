@@ -56,9 +56,7 @@
 
                         <hr>
 
-
-
-                        <button class="btnwinkelmand" type="submit" value="Submit"/>In de winkelmand</button>
+                        <a class="btnwinkelmand" href="#" >In de winkelmand</a>
 
                     </div>
                 </div>

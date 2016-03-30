@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class ProductdetailController extends Controller
@@ -21,13 +21,9 @@ class ProductdetailController extends Controller
             ->with('product', product::find($id));
     }
 
-    public function inShoppingcart($id)
+    public function putShoppingcart($id)
     {
-        if(Session::has($id)){
-
-        }else{
-            Session::put($id,'product');
-        }
+        Session::put('product.id', 'test');
 
         return view('shoppingcart/shoppingcart');
 

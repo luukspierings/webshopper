@@ -19,15 +19,14 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/') }}">Shop</a></li>
-                <li><a href="{{ url('/about') }}">About us</a></li>
+                <li><a href="{{ url('/about') }}">Over ons</a></li>
+                <li><a href="{{ url('/shoppingcart') }}">Winkelmandje</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/shoppingcart') }}">Winkelmandje</a></li>
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else

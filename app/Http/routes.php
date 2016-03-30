@@ -18,7 +18,7 @@ Route::group(['middleware' => 'web'], function () {
 //
 //    });
 
-    Route::get('/shoppingcart', 'ShoppingcartController@index');
+
     Route::get('/shop', 'ShopController@index');
     Route::get('/shop/{id}/{category}', 'ShopController@getView');
     Route::get('/shop/{id}', 'ShopController@getIndex');
