@@ -39,6 +39,28 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.indexCategory'
     ]);
 
+    Route::get('cms/categorieën/nieuwcategorie', [
+        'uses'  => 'CmsCategoryController@newMainCategory',
+        'as'    => 'cms.newMainCategory'
+    ]);
+
+    Route::put('cms/categorieën/nieuwcategorie', [
+        'uses'  => 'CmsCategoryController@createMainCategory',
+        'as'    => 'cms.createMainCategory'
+    ]);
+
+    Route::get('cms/categorieën/nieuwsubcategorie', [
+        'uses'  => 'CmsCategoryController@newSubCategory',
+        'as'    => 'cms.newSubCategory'
+    ]);
+
+    Route::put('cms/categorieën/nieuwsubcategorie', [
+        'uses'  => 'CmsCategoryController@createSubCategory',
+        'as'    => 'cms.createSubCategory'
+    ]);
+
+
+
     // CMS PRODUCTS
     Route::get('/cms/producten',[
         'uses'  =>  'CmsProductsController@index',

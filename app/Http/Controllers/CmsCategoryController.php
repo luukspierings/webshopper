@@ -6,7 +6,7 @@ use App\mainCategory;
 use App\subCategory;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\CategoryRequest;
 
 class CmsCategoryController extends Controller
 {
@@ -22,6 +22,39 @@ class CmsCategoryController extends Controller
 
 
         return view('cms/listCategory')->with('categories', $categories);
+    }
+
+    public function newMainCategory(){
+        return view('cms/newMainCategory');
+    }
+
+    public function createMainCategory(CategoryRequest $request){
+
+        $cat = new mainCategory();
+        $cat->name = $request->name;
+
+        mainCategory::create([
+            'name' => $cat->name,
+        ]);
+
+        return redirect('/cms/categorieën');
+
+    }
+    public function newSubCategory(){
+        return view('cms/newSubCategory');
+    }
+
+    public function createSubCategory(CategoryRequest $request){
+
+        $cat = new subCategory();
+        $cat->name = $request->name;
+
+        subCategory::create([
+            'name' => $cat->name,
+        ]);
+
+        return redirect('/cms/categorieën');
+
     }
 
 
