@@ -51,8 +51,6 @@
                                     <div class="form-group">
                                         <label>Categorie</label>
                                         <select id="mainCategory" name="mainCategory" class="form-control">
-                                            <option value="0">Selecteer een categorie</option>
-
                                             @foreach($categories['main'] as $category)
                                                 <option value="{{$category->id}}"><?php echo $category->name?></option>
                                             @endforeach
@@ -63,8 +61,6 @@
                                     <div class="form-group">
                                         <label>Sub-categorie</label>
                                         <select id="subCategory" name="subCategory" class="form-control">
-                                            <option value="0">Selecteer een sub-categorie</option>
-
                                             @foreach($categories['sub'] as $category)
                                                 <option value="{{$category->id}}"><?php echo $category->name?></option>
                                             @endforeach
