@@ -36,6 +36,59 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.index'
     ]);
 
+    // CMS CATEGORIES
+    Route::get('/cms/categorieën',[
+        'uses'  =>  'CmsCategoryController@index',
+        'as'    =>  'cms.indexCategory'
+    ]);
+
+    Route::get('cms/categorieën/nieuwcategorie', [
+        'uses'  => 'CmsCategoryController@newMainCategory',
+        'as'    => 'cms.newMainCategory'
+    ]);
+
+    Route::put('cms/categorieën/nieuwcategorie', [
+        'uses'  => 'CmsCategoryController@createMainCategory',
+        'as'    => 'cms.createMainCategory'
+    ]);
+
+    Route::get('cms/categorieën/nieuwsubcategorie', [
+        'uses'  => 'CmsCategoryController@newSubCategory',
+        'as'    => 'cms.newSubCategory'
+    ]);
+
+    Route::put('cms/categorieën/nieuwsubcategorie', [
+        'uses'  => 'CmsCategoryController@createSubCategory',
+        'as'    => 'cms.createSubCategory'
+    ]);
+
+    Route::put('cms/categorieën/main/{mainCategory}', 'CmsCategoryController@updateMainCategory');
+
+    Route::get('cms/categorieën/main/{mainCategory}', [
+        'uses'  => 'CmsCategoryController@editMainCategory',
+        'as'    => 'cms.editMainCategory'
+    ]);
+
+    Route::put('cms/categorieën/sub/{subCategory}', 'CmsCategoryController@updateSubCategory');
+
+    Route::get('cms/categorieën/sub/{subCategory}', [
+        'uses'  => 'CmsCategoryController@editSubCategory',
+        'as'    => 'cms.editSubCategory'
+    ]);
+
+
+    Route::delete('cms/categorieën/maindelete/{mainCategory}', [
+        'uses'  => 'CmsCategoryController@deleteMainCategory',
+        'as'    => 'cms.deleteMainCategory'
+    ]);
+
+    Route::delete('cms/categorieën/subdelete/{subCategory}', [
+        'uses'  => 'CmsCategoryController@deleteSubCategory',
+        'as'    => 'cms.deleteSubCategory'
+    ]);
+
+
+
     // CMS PRODUCTS
     Route::get('/cms/producten',[
         'uses'  =>  'CmsProductsController@index',
