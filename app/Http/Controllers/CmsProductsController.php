@@ -26,11 +26,26 @@ class CmsProductsController extends Controller
             $products = product::all();
 
             foreach($products as $prod){
-                $prod->imagesrc = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
+                $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
+
+                if(file_exists ( public_path().$path )){
+                    $prod->imagesrc = $path;
+                }
+                else{
+                    $prod->imagesrc = $this::$imageDirectory .'imagenotavailable.png';
+                }
+
             }
 
+            $values = [];
+            $main = mainCategory::all();
+            $sub = subCategory::all();
 
-            return view('cms/listProduct')->with('products', $products);
+            $values['main'] = $main;
+            $values['sub'] = $sub;
+            $values['products'] = $products;
+
+            return view('cms/listProduct')->with('values', $values);
         }
         else{
             return redirect('/');
@@ -68,8 +83,14 @@ class CmsProductsController extends Controller
             'subCategory_id' => $product->subCategory_id
         ]);
 
-        $image = Image::make($request->file('uploadedImage'));
-        $this->storeImage($image, $p->id.'image');
+        if($request->file() != null){
+            $image = Image::make($request->file('uploadedImage'));
+            $this->storeImage($image, $p->id.'image');
+        }
+        else{
+
+        }
+
 
         return redirect('/cms/producten');
 
@@ -97,7 +118,15 @@ class CmsProductsController extends Controller
 
     public function editProduct(Product $product)
     {
-        return view('cms/editProduct')->with('product', $product);
+        $values = [];
+        $main = mainCategory::all();
+        $sub = subCategory::all();
+
+        $values['main'] = $main;
+        $values['sub'] = $sub;
+        $values['product'] = $product;
+
+        return view('cms/editProduct')->with('values', $values);
     }
 
 
@@ -107,17 +136,26 @@ class CmsProductsController extends Controller
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
         $product->price = $request->price;
+        $product->mainCategory_id = $request->mainCategory;
+        $product->subCategory_id = $request->subCategory;
         $product->save();
 
-        $image = Image::make($request->file('uploadedImage'));
-        $this->storeImage($image, $product->id.'image');
+        if($request->file() != null){
+            $image = Image::make($request->file('uploadedImage'));
+            $this->storeImage($image, $product->id.'image');
+        }
+
 
         return redirect('/cms/producten');
     }
 
     public function deleteProduct(Product $product){
 
-        unlink(public_path() .$this::$imageDirectory . $product->id . 'image' . $this::$imageExtension);
+        $path = public_path() .$this::$imageDirectory . $product->id . 'image' . $this::$imageExtension;
+        if(file_exists ( $path )){
+            unlink($path);
+        }
+
         Product::destroy($product->id);
 
 

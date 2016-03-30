@@ -105,7 +105,7 @@ Route::group(['middleware' => 'web'], function () {
         'as'    => 'cms.createProduct'
     ]);
 
-    Route::put('cms/producten/{product}', 'CmsController@updateProduct');
+    Route::put('cms/producten/{product}', 'CmsProductsController@updateProduct');
 
     Route::get('cms/producten/{product}', [
         'uses'  => 'CmsProductsController@editProduct',

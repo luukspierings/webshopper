@@ -36,8 +36,15 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav ">
 
-                <li><a href="{{ URL::action('ShopController@getIndex', 1) }}">Dames</a></li>
-                <li><a href="{{ URL::action('ShopController@getIndex', 2)}}">Heren</a></li>
+                <?php
+                   $categories = \App\mainCategory::all();
+                ?>
+                    @foreach($categories as $category)
+                        <li><a href="{{ $category->name }}"><?php echo $category->name?></a></li>
+                    @endforeach
+
+                <li><a href="{{ url('/dames') }}">Dames</a></li>
+                <li><a href="{{ url('/heren') }}">Heren</a></li>
             </ul>
 
         </div>

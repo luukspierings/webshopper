@@ -15,14 +15,14 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
 
-                            <form method="POST" action="{{ route('cms.editProduct', ['product' => $product]) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('cms.editProduct', ['product' => $values['product']]) }}" enctype="multipart/form-data">
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
 
 
                                 <div class="form-group">
                                     <label for="comment">Naam</label>
-                                    <p><input id="name" name="name" class="form-control" value="{{ $product->name }}"/></p>
+                                    <p><input id="name" name="name" class="form-control" value="{{ $values['product']->name }}"/></p>
                                     @if($errors->has('name'))
                                         <span class="help-block">{{ $errors->first('name') }}</span>
                                     @endif
@@ -30,7 +30,7 @@
 
                                 <div class="form-group">
                                     <label for="comment">Korte omschrijving</label>
-                                    <p><input id="shortDescription" name="shortDescription" class="form-control" value="{{ $product->shortDescription }}"/></p>
+                                    <p><input id="shortDescription" name="shortDescription" class="form-control" value="{{ $values['product']->shortDescription }}"/></p>
                                     @if($errors->has('shortDescription'))
                                         <span class="help-block">{{ $errors->first('shortDescription') }}</span>
                                     @endif
@@ -38,7 +38,7 @@
 
                                 <div class="form-group">
                                     <label for="comment">Lange omschrijving</label>
-                                    <p><input id="longDescription" name="longDescription" class="form-control" value="{{ $product->longDescription }}"/></p>
+                                    <p><input id="longDescription" name="longDescription" class="form-control" value="{{ $values['product']->longDescription }}"/></p>
                                     @if($errors->has('longDescription'))
                                         <span class="help-block">{{ $errors->first('longDescription') }}</span>
                                     @endif
@@ -46,12 +46,42 @@
 
                                 <div class="form-group">
                                     <label for="comment">Prijs</label>
-                                    <p><input id="price" name="price" class="form-control" type="number" value="{{ $product->price }}" step="any"/></p>
+                                    <p><input id="price" name="price" class="form-control" type="number" value="{{ $values['product']->price }}" step="any"/></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Categorie</label>
+                                    <select id="mainCategory" name="mainCategory" class="form-control" >
+                                        @foreach($values['main'] as $category)
+                                            @if($category->id == $values['product']->mainCategory_id)
+                                                <option selected value="{{$category->id}}"><?php echo $category->name?></option>
+                                            @else
+                                                <option value="{{$category->id}}"><?php echo $category->name?></option>
+                                            @endif
+
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Sub-categorie</label>
+                                    <select id="subCategory" name="subCategory" class="form-control">
+                                        @foreach($values['sub'] as $category)
+                                            @if($category->id == $values['product']->subCategory_id)
+                                                <option selected value="{{$category->id}}"><?php echo $category->name?></option>
+                                            @else
+                                                <option value="{{$category->id}}"><?php echo $category->name?></option>
+                                            @endif
+                                        @endforeach
+
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Foto</label>
-                                    <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" ></p>
+                                    <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" value="" ></p>
                                     @if($errors->has('uploadedImage'))
                                         <span class="help-block">{{ $errors->first('uploadedImage') }}</span>
                                     @endif
