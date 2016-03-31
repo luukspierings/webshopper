@@ -11,7 +11,6 @@ class ShoppingcartController extends Controller
 {
     public function index()
     {
-        Session::flush();
         $data = Session::get('product');
 
         $array = array();
