@@ -47,6 +47,11 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.indexOrder'
     ]);
 
+//    Route::delete('cms/orders/deleteorder', [
+//        'uses'  => 'CmsOrdersController@deleteOrder',
+//        'as'    => 'cms.deleteOrder'
+//    ]);
+
     // CMS CATEGORIES
     Route::get('/cms/categorieën',[
         'uses'  =>  'CmsCategoryController@index',

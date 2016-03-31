@@ -19,7 +19,11 @@
                                     <h3><?php foreach($users as $user){ if($user->id == $order->user_id){echo $user->email;}} ?></h3>
                                 </div>
                                 <div class="col-md-2 text-right">
-                                    <a class="btn btn-Danger col-md-12 ">Verwijderen</a>
+                                    <form method="POST" action="{{route('cms.deleteOrder', ['order' => $order->id])}}">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-Danger col-md-12 ">Verwijderen</button>
+                                    </form>
                                 </div>
 
                                 <br>
