@@ -16,6 +16,6 @@ class SubMainTableSeeder extends Seeder
         $cloth = subCategory::find(1);
         $dames = mainCategory::find(1);
         $heren = mainCategory::find(2);
-        $cloth->gender()->attach([$dames->id, $heren->id]);
+        $cloth->main()->attach([$dames->id, $heren->id]);
     }
 }

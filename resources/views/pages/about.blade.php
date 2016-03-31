@@ -19,7 +19,12 @@
                         </div>
                         <div>
                             <h3>Jonathan Immink</h3>
-
+                            24-3  -  5 uur  -  Paginas aanmaken (html + css) <br>
+                            25-3  -  2 uur  -  Opzetten van project/Database <br>
+                            26-3  -  5 uur  -  Style maken + layout<br>
+                            28-3  -  10 uur  -  Shop pagina met lijst met producten/categorie + product eigenschappen<br>
+                            30-3  -  10 uur  -  Product detail pagina + subcategorieen<br>
+                            31-3  -  12 uur  -  Winkelmandje + filteren op producten<br>
 
                         </div>
 

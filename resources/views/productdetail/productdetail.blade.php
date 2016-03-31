@@ -26,7 +26,7 @@
 
                 <hr>
 
-                <div class="col-md-4 col-md-offset-1">
+                <div class="col-md-3 col-md-offset-1">
                     <div class="productimage">
                         <img class="img-responsive" src="{{$product->imagesrcBig}}" alt="">
                     </div>
@@ -51,7 +51,7 @@
                             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                             <input name="product" type="hidden" value="{{ $product->id }}"/>
                             <input type="hidden" name="method" value=1/>
-                            <input type="submit" name="Submit" value="submit">
+                            <input type="submit" name="Submit" value="In winkelmand plaatsen">
                         </form>
 
                         <br>
