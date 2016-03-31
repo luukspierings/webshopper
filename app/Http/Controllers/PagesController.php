@@ -29,7 +29,7 @@ class PagesController extends Controller{
 
         $data = Session::get('product');
 
-        if(!emptyArray($data)){
+        if(!empty($data)){
             $o = order::create([
                 'user_id' => Auth::user()->id,
             ]);
@@ -46,7 +46,7 @@ class PagesController extends Controller{
 
 
 
-//        Session::flush();
+        Session::forget('product');
         return view('home');
 
     }
