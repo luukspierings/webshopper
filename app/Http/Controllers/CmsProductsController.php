@@ -18,7 +18,8 @@ class CmsProductsController extends Controller
 
     private static $imageDirectory      = '/images/productImages/';
     private static $imageExtension      = '.png';
-    private static $imageSize           = 250;
+    private static $smallImageSize      = 250;
+    private static $bigImageSize        = 400;
 
     public function index(){
         if (Auth::user()->isAdmin == 1){
@@ -26,13 +27,20 @@ class CmsProductsController extends Controller
             $products = product::all();
 
             foreach($products as $prod){
-                $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
+                $pathSmall = $this::$imageDirectory . $prod->id . 'imageSmall' . $this::$imageExtension;
+                $pathBig = $this::$imageDirectory . $prod->id . 'imageBig' . $this::$imageExtension;
 
-                if(file_exists ( public_path().$path )){
-                    $prod->imagesrc = $path;
+                if(file_exists ( public_path().$pathSmall )){
+                    $prod->imagesrcSmall = $pathSmall;
                 }
                 else{
-                    $prod->imagesrc = $this::$imageDirectory .'imagenotavailable.png';
+                    $prod->imagesrcSmall = $this::$imageDirectory .'imagenotavailable.png';
+                }
+                if(file_exists ( public_path().$pathBig )){
+                    $prod->imagesrcBig = $pathBig;
+                }
+                else{
+                    $prod->imagesrcBig = $this::$imageDirectory .'imagenotavailable.png';
                 }
 
             }
@@ -83,24 +91,27 @@ class CmsProductsController extends Controller
             'subCategory_id' => $product->subCategory_id
         ]);
 
-        if($request->file() != null){
-            $image = Image::make($request->file('uploadedImage'));
-            $this->storeImage($image, $p->id.'image');
-        }
-        else{
 
+        if($request->file('uploadedImageSmall') != null){
+            $image = Image::make($request->file('uploadedImageSmall'));
+            $this->storeSmallImage($image, $p->id.'imageSmall');
         }
+        if($request->file('uploadedImageBig') != null){
+            $image = Image::make($request->file('uploadedImageBig'));
+            $this->storeBigImage($image, $p->id.'imageBig');
+        }
+
 
 
         return redirect('/cms/producten');
 
     }
 
-    private function storeImage($image, $id) {
+    private function storeSmallImage($image, $id) {
         //Decide whether the image should be constrained by width or by height and set new width and height.
         $resizeWidth = $image->getWidth() < $image->getHeight() ? True : False;
-        $newWidth = $resizeWidth == True ? $this::$imageSize : null;
-        $newHeight = $resizeWidth == False ? $this::$imageSize : null;
+        $newWidth = $resizeWidth == True ? $this::$smallImageSize : null;
+        $newHeight = $resizeWidth == False ? $this::$smallImageSize : null;
 
         //Resize image. Either $newWidth or $newHeight will be null so that the size can be constrained to aspect ratio.
         $image->resize($newWidth, $newHeight, function($constraint) {
@@ -108,7 +119,24 @@ class CmsProductsController extends Controller
         });
 
         //Crop image to $imageSize x $imageSize. We might have to disable this later on.
-        $image->crop($this::$imageSize, $this::$imageSize);
+        $image->crop($this::$smallImageSize, $this::$smallImageSize);
+
+        //Store image as PNG in the $imageDirectory.
+        $image->save(public_path() . $this::$imageDirectory . $id . $this::$imageExtension);
+    }
+    private function storeBigImage($image, $id) {
+        //Decide whether the image should be constrained by width or by height and set new width and height.
+        $resizeWidth = $image->getWidth() < $image->getHeight() ? True : False;
+        $newWidth = $resizeWidth == True ? $this::$bigImageSize : null;
+        $newHeight = $resizeWidth == False ? $this::$bigImageSize : null;
+
+        //Resize image. Either $newWidth or $newHeight will be null so that the size can be constrained to aspect ratio.
+        $image->resize($newWidth, $newHeight, function($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        //Crop image to $imageSize x $imageSize. We might have to disable this later on.
+        $image->crop($this::$bigImageSize, $this::$bigImageSize);
 
         //Store image as PNG in the $imageDirectory.
         $image->save(public_path() . $this::$imageDirectory . $id . $this::$imageExtension);
@@ -140,9 +168,13 @@ class CmsProductsController extends Controller
         $product->subCategory_id = $request->subCategory;
         $product->save();
 
-        if($request->file() != null){
-            $image = Image::make($request->file('uploadedImage'));
-            $this->storeImage($image, $product->id.'image');
+        if($request->file('uploadedImageSmall') != null){
+            $image = Image::make($request->file('uploadedImageSmall'));
+            $this->storeSmallImage($image, $product->id.'imageSmall');
+        }
+        if($request->file('uploadedImageBig') != null){
+            $image = Image::make($request->file('uploadedImageBig'));
+            $this->storeBigImage($image, $product->id.'imageBig');
         }
 
 
@@ -151,7 +183,11 @@ class CmsProductsController extends Controller
 
     public function deleteProduct(Product $product){
 
-        $path = public_path() .$this::$imageDirectory . $product->id . 'image' . $this::$imageExtension;
+        $path = public_path() .$this::$imageDirectory . $product->id . 'imageSmall' . $this::$imageExtension;
+        if(file_exists ( $path )){
+            unlink($path);
+        }
+        $path = public_path() .$this::$imageDirectory . $product->id . 'imageBig' . $this::$imageExtension;
         if(file_exists ( $path )){
             unlink($path);
         }

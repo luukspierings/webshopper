@@ -80,12 +80,21 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Foto</label>
-                                    <p><input type="file" class="form-control-file" name="uploadedImage" accept="image/*" value="" ></p>
-                                    @if($errors->has('uploadedImage'))
-                                        <span class="help-block">{{ $errors->first('uploadedImage') }}</span>
+                                    <label>Kleine foto</label>
+                                    <p><input type="file" class="form-control-file" name="uploadedImageSmall" accept="image/*" value="" ></p>
+                                    @if($errors->has('uploadedImageSmall'))
+                                        <span class="help-block">{{ $errors->first('uploadedImageSmall') }}</span>
                                     @endif
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Grote foto</label>
+                                    <p><input type="file" class="form-control-file" name="uploadedImageBig" accept="image/*" value="" ></p>
+                                    @if($errors->has('uploadedImageBig'))
+                                        <span class="help-block">{{ $errors->first('uploadedImageBig') }}</span>
+                                    @endif
+                                </div>
+
                                 <br>
 
                                 <div class="form-group">

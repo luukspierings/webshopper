@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row row-eq-height">
-            <div style="margin-bottom: 100px"  class="col-md-10 ">
+            <div style="margin-bottom: 100px"  >
                 <div class="container">
                     <h2>CMS Producten</h2>
                     <hr>
@@ -25,7 +25,7 @@
                                 <H1><?php echo $product->name ?></H1>
                                 <br>
 
-                                <div class="col-md-6 productattr">
+                                <div class="col-md-4 productattr">
 
                                     <label>Korte omschrijving</label>
                                     <div class="content"><?php echo $product->shortDescription ?></div>
@@ -61,9 +61,13 @@
 
                                 </div>
 
-                                <div class="col-md-6 productattr">
-                                    <label>Foto</label>
-                                    <div class="content"><img src="{{$product->imagesrc}}" alt="{{$product->imagesrc}}" /></div>
+                                <div class="col-md-3 productattr">
+                                    <label>Kleine foto</label>
+                                    <div class="content"><img src="{{$product->imagesrcSmall}}" alt="{{$product->imagesrcSmall}}" /></div>
+                                </div>
+                                <div class="col-md-5 productattr">
+                                    <label>Grote foto</label>
+                                    <div class="content"><img src="{{$product->imagesrcBig}}" alt="{{$product->imagesrcBig}}" /></div>
                                 </div>
 
                                 <div class="col-md-12">

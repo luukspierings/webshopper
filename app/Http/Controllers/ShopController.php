@@ -20,12 +20,11 @@ class ShopController extends Controller{
         $products = product::where('mainCategory_id', $id)->get();
 
         foreach($products as $prod) {
-            $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
-
-            if (file_exists(public_path() . $path)) {
-                $prod->imagesrc = $path;
+            $pathSmall = $this::$imageDirectory . $prod->id . 'imageSmall' . $this::$imageExtension;
+            if (file_exists(public_path() . $pathSmall)) {
+                $prod->imagesrcSmall = $pathSmall;
             } else {
-                $prod->imagesrc = $this::$imageDirectory . 'imagenotavailable.png';
+                $prod->imagesrcSmall = $this::$imageDirectory . 'imagenotavailable.png';
             }
         }
 
@@ -43,12 +42,11 @@ class ShopController extends Controller{
         $products = product::where('mainCategory_id', $id)->where('subCategory_id',$category)->get();
 
         foreach($products as $prod) {
-            $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
-
-            if (file_exists(public_path() . $path)) {
-                $prod->imagesrc = $path;
+            $pathSmall = $this::$imageDirectory . $prod->id . 'imageSmall' . $this::$imageExtension;
+            if (file_exists(public_path() . $pathSmall)) {
+                $prod->imagesrcSmall = $pathSmall;
             } else {
-                $prod->imagesrc = $this::$imageDirectory . 'imagenotavailable.png';
+                $prod->imagesrcSmall = $this::$imageDirectory . 'imagenotavailable.png';
             }
         }
 

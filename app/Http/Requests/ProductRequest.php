@@ -29,7 +29,8 @@ class ProductRequest extends Request
             'name' => 'required|string',
             'shortDescription' => 'required|string',
             'longDescription' => 'string',
-            'uploadedImage' => 'image'
+            'uploadedImageSmall' => 'image',
+            'uploadedImageBig' => 'image'
 
 
         ];
@@ -42,7 +43,8 @@ class ProductRequest extends Request
             'shortDescription.required'    => 'Een korte omschrijving is verplicht!',
             'shortDescription.string'      => 'Deze korte omschrijving is niet geldig!',
             'longDescription.string'       => 'Deze lange omschrijving is niet geldig!',
-            'uploadedImage.image'          => 'Deze foto is niet geldig!',
+            'uploadedImageSmall.image'          => 'Deze foto is niet geldig!',
+            'uploadedImageBig.image'          => 'Deze foto is niet geldig!',
 
 
 

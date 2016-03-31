@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Session;
 
 class ProductdetailController extends Controller
 {
-    
+    private static $imageDirectory      = '/images/productImages/';
+    private static $imageExtension      = '.png';
+
     public function index()
     {
         return view('productdetail/productdetail');
@@ -20,6 +22,14 @@ class ProductdetailController extends Controller
     public function getIndex($id)
     {
         $product = product::find($id);
+
+        $pathBig = $this::$imageDirectory . $product->id . 'imageBig' . $this::$imageExtension;
+        if (file_exists(public_path() . $pathBig)) {
+            $product->imagesrcBig = $pathBig;
+        } else {
+            $product->imagesrcBig = $this::$imageDirectory . 'imagenotavailable.png';
+        }
+
 
         $mainCats = mainCategory::all();
         $mainCat = null;

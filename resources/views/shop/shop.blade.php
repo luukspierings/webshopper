@@ -45,10 +45,11 @@
                     <div class="col-lg-4 col-md-4 col-xs-4 nospacing">
                         <div class="product">
                             <a class="thumbnail" href="{{ URL::action('ProductdetailController@getIndex', $value->id) }}">
-                                <img class="img-responsive" src="{{$value->imagesrc}}" alt="">
+                                <img class="img-responsive" src="{{$value->imagesrcSmall}}" alt="">
                             </a>
-                                <h4 class="text-center">{{$value->shortDescription}}</h4>
-                                <h3 class="text-center">€ {{$value->price}}</h3>
+                            <h3 class="text-center">{{$value->name}}</h3>
+                            <h4 style="word-break: break-all" class="text-center">{{$value->shortDescription}}</h4>
+                            <h3 class="text-center">€ {{$value->price}}</h3>
 
                         </div>
                     </div>
