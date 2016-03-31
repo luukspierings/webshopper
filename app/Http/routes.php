@@ -9,23 +9,13 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-
-
-
-
-//    Schema::table('products', function($table){
-//        $table->string('name', 20);
-//
-//    });
-
-
-    Route::patch('/shoppingcart', 'ShoppingcartController@PostShoppingcart');
-
+    
     Route::get('/shop', 'ShopController@index');
     Route::get('/shop/{id}/{category}', 'ShopController@getView');
     Route::get('/shop/{id}', 'ShopController@getIndex');
     Route::get('/product/{id}', 'ProductdetailController@getIndex');
     Route::get('/product/{id}?', 'ProductdetailController@putShoppingcart');
+    Route::patch('/shoppingcart', 'ShoppingcartController@PostShoppingcart');
     Route::get('/shoppingcart', 'ShoppingcartController@index');
     Route::get('/product', 'ProductdetailController@index');
     Route::get('/webshop', 'WebshopController@index');
