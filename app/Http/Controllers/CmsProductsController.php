@@ -22,9 +22,12 @@ class CmsProductsController extends Controller
     private static $bigImageSize        = 400;
 
     public function index(){
-        if (Auth::user()->isAdmin == 1){
 
-            $products = product::all();
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
+
+        $products = product::all();
 
             foreach($products as $prod){
                 $pathSmall = $this::$imageDirectory . $prod->id . 'imageSmall' . $this::$imageExtension;
@@ -54,13 +57,14 @@ class CmsProductsController extends Controller
             $values['products'] = $products;
 
             return view('cms/listProduct')->with('values', $values);
-        }
-        else{
-            return redirect('/');
-        }
+
     }
 
     public function newProduct(){
+
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
 
         $categories = [];
         $main = mainCategory::all();
@@ -73,6 +77,9 @@ class CmsProductsController extends Controller
     }
 
     public function createProduct(ProductRequest $request){
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
 
         $product = new Product();
         $product->name = $request->name;
@@ -146,6 +153,10 @@ class CmsProductsController extends Controller
 
     public function editProduct(Product $product)
     {
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
+
         $values = [];
         $main = mainCategory::all();
         $sub = subCategory::all();
@@ -159,6 +170,10 @@ class CmsProductsController extends Controller
 
 
     public function updateProduct(ProductRequest $request, Product $product){
+
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
 
         $product->name = $request->name;
         $product->shortDescription = $request->shortDescription;
@@ -183,6 +198,10 @@ class CmsProductsController extends Controller
 
     public function deleteProduct(Product $product){
 
+        if (Auth::user()->isAdmin != 1){
+            return redirect('/');
+        }
+
         $path = public_path() .$this::$imageDirectory . $product->id . 'imageSmall' . $this::$imageExtension;
         if(file_exists ( $path )){
             unlink($path);
@@ -198,6 +217,8 @@ class CmsProductsController extends Controller
 
         return redirect('/cms/producten');
     }
+
+
 
 
 }
