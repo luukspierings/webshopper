@@ -7,7 +7,7 @@ use App\mainCategory;
 use App\subCategory;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
