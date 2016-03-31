@@ -20,12 +20,5 @@ class ProductdetailController extends Controller
         return view('productdetail/productdetail')
             ->with('product', product::find($id));
     }
-
-    public function putShoppingcart($id)
-    {
-        Session::put('product.id', 'test');
-
-        return view('shoppingcart/shoppingcart');
-
-    }
+    
 }

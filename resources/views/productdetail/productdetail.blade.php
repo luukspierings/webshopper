@@ -56,7 +56,13 @@
 
                         <hr>
 
-                        <a class="btnwinkelmand" href="#" >In de winkelmand</a>
+                        <form method="POST" action="{{URL::action('ShoppingcartController@PostShoppingcart')}} ">
+                            <input name="_method" type="hidden" value="PATCH">
+                            <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                            <input name="product" type="hidden" value="{{ $product->id }}"/>
+                            <input type="submit" name="Submit" value="submit">
+                        </form>
+
 
                     </div>
                 </div>

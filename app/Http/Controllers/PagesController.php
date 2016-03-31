@@ -21,6 +21,13 @@ class PagesController extends Controller{
 
         return view('pages/about')->withData($data);
     }
+
+    public function PostShoppingcart(){
+
+        Session::flush();
+        return view('home');
+
+    }
 }
 
 ?>
