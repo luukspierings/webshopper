@@ -4,6 +4,20 @@
     <div class="container page-wrap">
         <div class="row">
 
+            <div class="col-md-12 breadcrumb">
+                <div class="container">
+                    <a href="/">Home</a>
+                    <span>&#62;</span>
+                    <a href="/shop/{{$main->id}}"><?php echo $main->name ?></a>
+                    <span>&#62;</span>
+                    <a href="/shop/{{$main->id.'/'.$sub->id}}" ><?php echo $sub->name?></a>
+                    <span>&#62;</span>
+                    <a href="/product/{{$product->id}}" ><?php echo $product->name?></a>
+
+
+                </div>
+
+            </div>
             <!-- preview image -->
             <div class="col-md-2 previewthumb">
                 <div class="previewimage">

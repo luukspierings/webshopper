@@ -4,6 +4,20 @@
     <div class="container page-wrap">
         <div class="row">
 
+            <div class="col-md-12 breadcrumb">
+                <div class="container">
+                    <a href="/">Home</a>
+                    <span>&#62;</span>
+                    <a href="/shop/{{$main->id}}"><?php echo $main->name ?></a>
+                    @if($sub != 0)
+                        <span>&#62;</span>
+                        <a href="/shop/{{$main->id.'/'.$sub}}" ><?php foreach($categories as $cat){ if($sub == $cat->id){ echo $cat->name;}} ?></a>
+                    @endif
+
+                </div>
+
+            </div>
+
             <!-- Filters -->
             <div class="col-md-2 filtercolumn">
 
