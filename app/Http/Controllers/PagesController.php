@@ -38,7 +38,7 @@ class PagesController extends Controller{
                 productOrder::create([
                     'order_id' => $o->id,
                     'product_id' => $value,
-                    'quantity' => 1,
+
                 ]);
             }
         }
@@ -46,7 +46,7 @@ class PagesController extends Controller{
 
 
 
-        Session::flush();
+//        Session::flush();
         return view('home');
 
     }
