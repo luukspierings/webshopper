@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\mainCategory;
 use App\subCategory;
 use App\product;
+use Illuminate\Support\Facades\Input;
 
 class ShopController extends Controller{
 
@@ -17,7 +18,13 @@ class ShopController extends Controller{
 
     public function getIndex($id){
 
-        $products = product::where('mainCategory_id', $id)->get();
+        $zoeken = Input::has('zoeken') ? Input::get('zoeken') : null;
+
+        if(isset($zoeken)){
+            $products = product::where('name', 'Like' , '%'.$zoeken.'%')->where('mainCategory_id', $id)->get();
+        }else{
+            $products = product::where('mainCategory_id', $id)->get();
+        }
 
         foreach($products as $prod) {
             $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;
@@ -28,6 +35,10 @@ class ShopController extends Controller{
                 $prod->imagesrc = $this::$imageDirectory . 'imagenotavailable.png';
             }
         }
+
+
+
+
 
         return view('shop/shop')
             ->with('main', mainCategory::find($id))
@@ -40,7 +51,13 @@ class ShopController extends Controller{
     public function getView($id, $category){
 
 
-        $products = product::where('mainCategory_id', $id)->where('subCategory_id',$category)->get();
+        $zoeken = Input::has('zoeken') ? Input::get('zoeken') : null;
+
+        if(isset($zoeken)){
+            $products = product::where('name', 'Like' , '%'.$zoeken.'%')->where('mainCategory_id', $id)->where('subCategory_id',$category)->get();
+        }else{
+            $products = product::where('mainCategory_id', $id)->where('subCategory_id',$category)->get();
+        }
 
         foreach($products as $prod) {
             $path = $this::$imageDirectory . $prod->id . 'image' . $this::$imageExtension;

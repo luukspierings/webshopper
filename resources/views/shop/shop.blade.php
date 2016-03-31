@@ -21,6 +21,17 @@
             <!-- Filters -->
             <div class="col-md-2 filtercolumn">
 
+                <form action="{{URL::current()}}">
+                    <br>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Zoeken" name='zoeken' value="{{\Illuminate\Support\Facades\Input::get('zoeken')}}">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default">Zoeken</button>
+                      </span>
+                    </div><!-- /input-group -->
+                </form>
+
+                <br>
                 <h3>Kleding</h3>
                 <ul class="taxons-list filterlist">
                     @foreach($categories as $category)
@@ -47,7 +58,7 @@
                             <a class="thumbnail" href="{{ URL::action('ProductdetailController@getIndex', $value->id) }}">
                                 <img class="img-responsive" src="{{$value->imagesrc}}" alt="">
                             </a>
-                                <h4 class="text-center">{{$value->shortDescription}}</h4>
+                                <h4 class="text-center">{{$value->name}}</h4>
                                 <h3 class="text-center">€ {{$value->price}}</h3>
 
                         </div>
