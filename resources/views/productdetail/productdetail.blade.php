@@ -50,6 +50,7 @@
                             <input name="_method" type="hidden" value="PATCH">
                             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                             <input name="product" type="hidden" value="{{ $product->id }}"/>
+                            <input type="hidden" name="method" value=1/>
                             <input type="submit" name="Submit" value="submit">
                         </form>
 

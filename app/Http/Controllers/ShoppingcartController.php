@@ -11,6 +11,7 @@ class ShoppingcartController extends Controller
 {
     public function index()
     {
+        Session::flush();
         $data = Session::get('product');
 
         $array = array();
@@ -34,17 +35,25 @@ class ShoppingcartController extends Controller
     }
 
     public function PostShoppingcart(){
-        $product = $_POST['product'];
-        Session::push('product', $product);
+        $productnum = $_POST['product'];
+        $methode = $_POST['method'];
 
-        $data = Session::get('product');
+        if($methode == 0) {
+            Session::forget('product.' . $productnum);
+        }
+        if($methode == 1) {
+            Session::push('product', $productnum);
+        }
+
+        $datanew = array_values(Session::get('product'));
+        Session::set('product', $datanew);
 
         $array = array();
         $count = 0;
         $totalprice = 0;
 
-        if(isset($data)){
-            foreach ($data as $product){
+        if(isset($datanew)){
+            foreach ($datanew as $product){
                 $pro = product::find($product);
                 $array[$count] = $pro;
                 $count++;
@@ -58,4 +67,5 @@ class ShoppingcartController extends Controller
 
 
     }
+
 }
