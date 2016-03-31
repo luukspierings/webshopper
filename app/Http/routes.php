@@ -40,6 +40,13 @@ Route::group(['middleware' => 'web'], function () {
         'as'    =>  'cms.index'
     ]);
 
+    // CMS ORDERS
+
+    Route::get('/cms/orders',[
+        'uses'  =>  'CmsOrdersController@index',
+        'as'    =>  'cms.indexOrder'
+    ]);
+
     // CMS CATEGORIES
     Route::get('/cms/categorieën',[
         'uses'  =>  'CmsCategoryController@index',

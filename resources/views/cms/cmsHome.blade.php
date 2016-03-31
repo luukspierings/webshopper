@@ -19,7 +19,7 @@
                             <a href="cms/categorieën" class="btn btn-primary "style="width: 100%; font-size: large">Categorieën</a>
                         </div>
                         <div class="container col-md-4 ">
-                            <a class="btn btn-primary" style="width: 100%; font-size: large">Orders</a>
+                            <a href="cms/orders" class="btn btn-primary" style="width: 100%; font-size: large">Orders</a>
                         </div>
 
 
