@@ -10,7 +10,7 @@
                 <h3>Kleding</h3>
                 <ul class="taxons-list filterlist">
                     @foreach($categories as $category)
-                        <li><a class="filterlink" href="{{ URL::action('ShopController@getView', [$main, $category->id]) }}">{{$category->name}}</a></li>
+                        <li><a class="filterlink" href="{{ URL::action('ShopController@getView', [$main, $category]) }}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
 
@@ -23,13 +23,15 @@
             <!-- Producten -->
             <div class="col-md-10 productthumb nospacing">
                 <h3 class="text-center">{{$main->name}}</h3>
+                <h4 class="text-center"><?php foreach($categories as $cat){ if($sub == $cat->id){ echo $cat->name;}} ?></h4>
+                <br>
 
                 <div class="productgrid">
                     @foreach($products as $value)
                     <div class="col-lg-4 col-md-4 col-xs-4 nospacing">
                         <div class="product">
                             <a class="thumbnail" href="{{ URL::action('ProductdetailController@getIndex', $value->id) }}">
-                                <img class="img-responsive" src="http://placehold.it/350x300" alt="">
+                                <img class="img-responsive" src="{{$value->imagesrc}}" alt="">
                             </a>
                                 <h4 class="text-center">{{$value->shortDescription}}</h4>
                                 <h3 class="text-center">€ {{$value->price}}</h3>
